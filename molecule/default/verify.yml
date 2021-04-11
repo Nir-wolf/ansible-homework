@@ -1,0 +1,17 @@
+---
+# Check that webserver is up and webpage is updated
+
+- name: Verify
+  hosts: all
+  gather_facts: false
+  tasks:
+
+    - name: Get http://localhost
+      uri:
+        url: http://localhost
+        return_content: true
+      register: http_response
+
+    - name: Check content
+      assert:
+        that: "'Hello, World!' in http_response.content"

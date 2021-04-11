@@ -1,0 +1,4 @@
+---
+# defaults file for ansible-homework
+
+nginx_message: "Hello, World!"
